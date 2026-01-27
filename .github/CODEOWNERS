@@ -1,0 +1,8 @@
+# Global owners
+* @jharajnish30
+
+# Documentation owners
+*.md @jharajnish30
+
+# GitHub workflows
+.github/workflows/ @jharajnish30
