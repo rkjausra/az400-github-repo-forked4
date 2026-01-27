@@ -16,3 +16,8 @@ Update README with contribution section 2
 
 Once more trying it out - last time missed out mentioning the issue id.
 There are workflow, template etc items added in the process.
+
+## Added Community Health Files
+
+Two files namely - CONTRIBUTING.md and .github/CODEOWNERS
+      are in place now with correct contents. View them using commit changes.
