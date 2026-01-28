@@ -17,6 +17,13 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
+      - name: Use secret safely
+        run: |
+          echo "Using secret in pipeline"
+          echo "API key length: ${#DEMO_API_KEY}"
+        env:
+          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
+
       - name: Display repository info
         run: |
           echo "Repository: $GITHUB_REPOSITORY"
