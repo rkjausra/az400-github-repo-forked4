@@ -20,9 +20,9 @@ jobs:
       - name: Use secret safely
         run: |
           echo "Using secret in pipeline"
-          echo "API key length: ${#DEMO_API_KEY}"
+          echo "API key length: ${#DEMO_API_KEYYY}"
         env:
-          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
+          DEMO_API_KEYYY: ${{ secrets.DEMO_API_KEY }}
 
       - name: Display repository info
         run: |
