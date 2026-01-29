@@ -1,0 +1,16 @@
+name: Reusable Lint
+
+on:
+  workflow_call:
+
+jobs:
+  lint:
+    name: Lint Job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run lint
+        run: |
+          echo "Running lint checks..."
+          echo "Lint passed"

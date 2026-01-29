@@ -1,0 +1,32 @@
+name: Reusable Build
+
+on:
+  workflow_call:
+    secrets:
+      DEMO_API_KEY:
+        required: false
+
+jobs:
+  build:
+    name: Build Job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use secret safely
+        run: |
+          echo "Using secret in pipeline"
+          echo "API key length: ${#DEMO_API_KEY}"
+        env:
+          DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
+
+      - name: Display repository info
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Branch: $GITHUB_REF"
+
+      - name: Simulate build
+        run: |
+          echo "Building the application..."
+          sleep 5
+          echo "Build completed successfully"
