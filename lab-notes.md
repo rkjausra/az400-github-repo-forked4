@@ -26,3 +26,7 @@ are you OK???
 ## After creating Ruleset on Upstream/Main
 Changes to verify this.
 Changes to verify this 2.
+
+## User "Rkja Usra" given direct access to organization.
+Now checking if all permissions are fine.
+Attemp-1------------->
