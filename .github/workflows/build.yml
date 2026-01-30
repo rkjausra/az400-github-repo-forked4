@@ -11,7 +11,8 @@ jobs:
     name: Build Job
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout source code
+        uses: actions/checkout@v4
 
       - name: Use secret safely
         run: |
@@ -21,9 +22,7 @@ jobs:
           DEMO_API_KEY: ${{ secrets.DEMO_API_KEY }}
 
       - name: Display repository info
-        run: |
-          echo "Repository: $GITHUB_REPOSITORY"
-          echo "Branch: $GITHUB_REF"
+        uses: ./.github/actions/print-context
 
       - name: Simulate build
         run: |

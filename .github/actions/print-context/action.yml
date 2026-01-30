@@ -1,0 +1,10 @@
+name: Print GitHub Context
+description: Prints repository and branch info
+
+runs:
+  using: composite
+  steps:
+    - run: |
+        echo "Repository: $GITHUB_REPOSITORY"
+        echo "Branch: $GITHUB_REF"
+      shell: bash
