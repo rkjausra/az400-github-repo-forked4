@@ -24,15 +24,34 @@ jobs:
 
       - name: Restore
         run: dotnet restore
+        working-directory: Az400.Demo.Library
 
       - name: Build
         run: dotnet build -c Release --no-restore
+        working-directory: Az400.Demo.Library
 
       - name: Pack
         run: dotnet pack -c Release --no-build -o out
+        working-directory: Az400.Demo.Library
 
       - name: Publish to GitHub Packages
         run: |
           dotnet nuget push out/*.nupkg \
             --source "github" \
             --api-key ${{ secrets.GITHUB_TOKEN }}
+        working-directory: Az400.Demo.Library
+
+# running "dotnet restore" will fail, as the .csproj file is inside Az400.Demo.Library folder
+# remedies
+# Option:1 Use working-directory (best)
+#      - name: Restore
+#        run: dotnet restore
+#        working-directory: Az400.Demo.Library
+# Option 2: cd inside the command (works, but less clean)
+#      - name: Restore
+#        run: |
+#          cd Az400.Demo.Library
+#          dotnet restore
+# Option 3: specify path inline
+#      - name: Restore
+#        run: dotnet restore Az400.Demo.Library/Az400.Demo.Library.csproj
